@@ -1,0 +1,55 @@
+{
+  "name": "cyber-snake",
+  "productName": "Cyber Snake",
+  "version": "1.0.0",
+  "description": "A desktop application for cyber snake game.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build-win": "electron-builder --win",
+    "build-linux": "electron-builder --linux",
+    "build-mac": "electron-builder --mac",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^32.3.3",
+    "electron-builder": "^25.1.8"
+  },
+  "dependencies": {
+    "is-online": "^11.0.0"
+  },
+  "build": {
+    "appId": "com.cyber-snake.desktop",
+    "productName": "Cyber Snake",
+    "files": [
+      "main.js",
+      "preload.js",
+      "assets/**/*",
+      "offline.html"
+    ],
+    "mac": {
+      "icon": "assets/favicon/apple-icon-180x180.png",
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "sign": false
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "tar.gz"
+      ],
+      "icon": "assets/favicon/apple-icon-180x180.png",
+      "category": "Utility",
+      "maintainer": "ekilie <support@ekilie.com>"
+    }
+  }
+}
